@@ -17,6 +17,7 @@
 $(call inherit-product, vendor/aosip/config/common_full_phone.mk)
 $(call inherit-product, device/google/bonito/aosp_bonito.mk)
 $(call inherit-product, device/google/bonito/device-aosip.mk)
+$(call inherit-product-if-exists, vendor/google/bonito/bonito-vendor.mk)
 
 PRODUCT_NAME := aosip_bonito
 PRODUCT_BRAND := google

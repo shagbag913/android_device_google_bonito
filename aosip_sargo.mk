@@ -17,6 +17,9 @@
 $(call inherit-product, vendor/aosip/config/common_full_phone.mk)
 $(call inherit-product, device/google/bonito/aosp_sargo.mk)
 $(call inherit-product, device/google/bonito/device-aosip.mk)
+# Include sargo before bonito to use sargo versions of blobs if they exist
+$(call inherit-product-if-exists, vendor/google/sargo/sargo-vendor.mk)
+$(call inherit-product-if-exists, vendor/google/bonito/bonito-vendor.mk)
 
 PRODUCT_NAME := aosip_sargo
 PRODUCT_BRAND := google
