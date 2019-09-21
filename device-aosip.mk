@@ -43,3 +43,5 @@ PRODUCT_PACKAGES += \
 # WiFi
 PRODUCT_PACKAGES += \
     libwifi-hal-qcom
+
+DEVICE_PACKAGE_OVERLAYS += device/google/bonito/overlay-aosip
