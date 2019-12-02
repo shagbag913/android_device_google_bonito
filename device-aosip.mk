@@ -50,3 +50,6 @@ DEVICE_PACKAGE_OVERLAYS += device/google/bonito/overlay-aosip
 # Vehicle HAL
 PRODUCT_PACKAGES += \
     android.hardware.automotive.vehicle@2.0-manager-lib
+
+PRODUCT_PACKAGES += \
+    libstagefright_bufferpool@2.0.1
