@@ -42,6 +42,11 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    libwifi-hal-qcom
+    libwifi-hal-qcom \
+    libcld80211
 
 DEVICE_PACKAGE_OVERLAYS += device/google/bonito/overlay-aosip
+
+# Vehicle HAL
+PRODUCT_PACKAGES += \
+    android.hardware.automotive.vehicle@2.0-manager-lib
