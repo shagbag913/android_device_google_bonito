@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 shagbag913
+# Copyright 2020 shagbag913
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,14 +14,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
-$(call inherit-product, device/google/bonito/aosp_bonito.mk)
-$(call inherit-product, device/google/bonito/device-aosip.mk)
-
-PRODUCT_NAME := aosip_bonito
-PRODUCT_BRAND := google
-PRODUCT_MODEL := Pixel 3a XL
-
-# Spoof PRODUCT_NAME so Pixel 3a exclusive features work
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=bonito
+# Build Google apps by default
+ifneq ($(TARGET_BUILD_GAPPS),false)
+$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
+endif
