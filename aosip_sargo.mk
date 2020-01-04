@@ -1,11 +1,11 @@
 #
-# Copyright 2015 The Android Open Source Project
+# Copyright (C) 2020 shagbag913
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,18 +14,13 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_bonito.mk \
-    $(LOCAL_DIR)/aosp_sargo.mk
+$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
+$(call inherit-product, device/google/bonito/aosp_sargo.mk)
 
-PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/aosip_bonito.mk \
-    $(LOCAL_DIR)/aosip_sargo.mk
+PRODUCT_NAME := aosip_sargo
+PRODUCT_BRAND := google
+PRODUCT_MODEL := Pixel 3a
 
-COMMON_LUNCH_CHOICES := \
-    aosp_bonito-userdebug \
-    aosp_sargo-userdebug
-
-COMMON_LUNCH_CHOICES += \
-    aosip_bonito-userdebug \
-    aosip_sargo-userdebug
+# Spoof PRODUCT_NAME so Pixel 3a exclusive features work
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=sargo
