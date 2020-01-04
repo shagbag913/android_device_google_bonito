@@ -1,11 +1,11 @@
 #
-# Copyright 2015 The Android Open Source Project
+# Copyright (C) 2020 shagbag913
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,18 +14,19 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_bonito.mk \
-    $(LOCAL_DIR)/aosp_sargo.mk
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2220
+TARGET_SCREEN_WIDTH := 1080
 
-PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/lineage_bonito.mk \
-    $(LOCAL_DIR)/lineage_sargo.mk
+# Inherit common Lineage product configuration
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-COMMON_LUNCH_CHOICES := \
-    aosp_bonito-userdebug \
-    aosp_sargo-userdebug
+# Inherit device configuration
+$(call inherit-product, device/google/bonito/aosp_sargo.mk)
 
-COMMON_LUNCH_CHOICES += \
-    lineage_bonito-userdebug \
-    lineage_sargo-userdebug
+PRODUCT_NAME := lineage_sargo
+PRODUCT_BRAND := google
+PRODUCT_MODEL := Pixel 3a
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=sargo
